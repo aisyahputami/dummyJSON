@@ -44,6 +44,8 @@ This step, Store Extracted Data, includes **tasks to store the extracted data fo
 ### Transfer Local Files to Google Cloud Storage
 This step involves **transferring the locally stored JSON files for users, carts, posts, and todos to a specified Google Cloud Storage (GCS) bucket**. The **LocalFilesystemToGCSOperator** is used to handle the file transfer for each dataset.
 
+![sample](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/sample_data.png)
+
 ![gcs](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/GCS.png)
 
 ### Load Data from Google Cloud Storage to BigQuery
