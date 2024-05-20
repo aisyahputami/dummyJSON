@@ -22,6 +22,8 @@ The workflow steps are similar to the diagram in the Task above. However, before
 
 The description of each step in the task execution process is as follows:
 
+![airflow](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/airflow.png)
+
 ### Create a Dataset in Google BigQuery
 The task create_assignment_dataset uses the **BigQueryCreateEmptyDatasetOperator** to create an empty dataset in Google BigQuery. It is identified by the task_id "**create_assignment_dataset**" and is part of the DAG specified by dag. The connection to Google Cloud Platform uses the credentials stored under the connection ID "google_cloud_default".
 
@@ -37,14 +39,22 @@ This step, Check for New Data and Branch, includes **tasks to check for new data
 ### Store Extracted Data
 This step, Store Extracted Data, includes **tasks to store the extracted data for users, carts, posts, and todos into the designated storage or database**. Each task uses the **PythonOperator** to call the **store_object** function, passing in specific parameters to handle the respective dataset. The **op_kwargs** parameter specifies the extraction task, the dataset object name, the key for the last row variable, and the last row value. This setup ensures that the extracted data is properly stored and updated for each dataset.
 
+![local](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Local%20Disk.png)
+
 ### Transfer Local Files to Google Cloud Storage
 This step involves **transferring the locally stored JSON files for users, carts, posts, and todos to a specified Google Cloud Storage (GCS) bucket**. The **LocalFilesystemToGCSOperator** is used to handle the file transfer for each dataset.
+
+![gcs](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/GCS.png)
 
 ### Load Data from Google Cloud Storage to BigQuery
 This step involves **loading JSON data files from Google Cloud Storage (GCS) into BigQuery tables**. The **GCSToBigQueryOperator** is used to load data for each dataset from GCS to BigQuery. Each dataset, including users, carts, posts, and todos, has its own task for loading data into the corresponding BigQuery table.
 
+![bq](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/bq_raw.png)
+
 ### Generate User Activity Summary Table
 This step involves **generating a summary table named user_activity_summary in BigQuery**. The summary table aggregates data from multiple raw tables including raw_users, raw_carts, raw_posts, and raw_todos. The aggregation includes calculations such as total products, total quantity, total amount spent, post count, total reactions, total todos, completed todos, and pending todos for each user. The **BigQueryInsertJobOperator** is utilized to execute the SQL query for creating the summary table.
+
+![summary](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/bq_summary.png)
 
 Based on the information available in the **user_activity_summary** table from the **week6** dataset in the **dfellowship12** project, we can draw several analytical conclusions that are useful for understanding user behavior and activities. Here are some analytical points based on the structure and data of the table:
 
