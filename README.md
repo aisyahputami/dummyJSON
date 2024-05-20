@@ -20,4 +20,10 @@ The workflow steps are similar to the diagram in the Task above. However, before
 
 ![connection](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Connection.png)
 
-Deskripsi dari masing-masing tahapan adalah sebagai berikut.
+The description of each step in the task execution process is as follows:
+
+### Create a Dataset in Google BigQuery
+The task create_assignment_dataset uses the **BigQueryCreateEmptyDatasetOperator** to create an empty dataset in Google BigQuery. It is identified by the task_id "**create_assignment_dataset**" and is part of the DAG specified by dag. The connection to Google Cloud Platform uses the credentials stored under the connection ID "google_cloud_default".
+
+### Check API Availability
+The **HttpSensor** tasks ensure that the respective API endpoints (/users, /carts, /posts, /todos) are available before the DAG proceeds with other operations that depend on these endpoints. This prevents downstream tasks from failing due to an unavailable API.
