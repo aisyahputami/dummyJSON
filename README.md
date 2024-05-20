@@ -10,3 +10,4 @@ Our business team needs data related to our users (users, their carts, their pos
 ![workflows](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Workflows.png)
 
 ## Tasks
+![tasks](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Tasks.png)
