@@ -7,5 +7,6 @@ Our business team needs data related to our users (users, their carts, their pos
 ![architecture](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Architecture.png)
 
 ## Workflows
+![workflows](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Workflows.png)
 
 ## Tasks
