@@ -11,3 +11,13 @@ Our business team needs data related to our users (users, their carts, their pos
 
 ## Tasks
 ![tasks](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Tasks.png)
+
+## Overview
+The workflow steps are similar to the diagram in the Task above. However, before that, create connections on the Airflow Webserver consisting of:
+
+1. A connection to link Airflow with the API.
+2. A connection to link Airflow with Google Cloud Platform services.
+
+![connection](https://github.com/aisyahputami/dummyJSON/blob/main/documentation/Connection.png)
+
+Deskripsi dari masing-masing tahapan adalah sebagai berikut.
